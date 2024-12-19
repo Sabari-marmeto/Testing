@@ -1,0 +1,266 @@
+{{ "Hero-Banner.css" |  asset_url |  stylesheet_tag }}
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+{% comment %} <style>
+    {% for block in section.blocks %}
+        .hero-section-whole-text-container.text-position{{ block.id }}.top-left {
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .hero-section-whole-text-container.text-position{{ block.id }}.top-center {
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .hero-section-whole-text-container.text-position{{ block.id }}.top-right {
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .hero-section-whole-text-container.text-position{{ block.id }}.center-left {
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .hero-section-whole-text-container.text-position{{ block.id }}.center-center {
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .hero-section-whole-text-container.text-position{{ block.id }}.center-right {
+            justify-content: flex-end;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .hero-section-whole-text-container.text-position{{ block.id }}.bottom-left {
+            justify-content: flex-start;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .hero-section-whole-text-container.text-position{{ block.id }}.bottom-center {
+            justify-content: center;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .hero-section-whole-text-container.text-position{{ block.id }}.bottom-right {
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 20px;
+        }
+      
+    {% endfor %}
+</style> {% endcomment %}
+
+{% capture slider_settings %}
+    {
+      "pagination": true,
+      "type": "slide",
+      "perPage": 1,
+      "arrows": true,
+      "gap": "1rem",
+      "perMove": 1,
+      "speed": 1500,
+      "breakpoints": {
+        "768": {
+          "perPage": 1
+        },
+        "480": {
+          "perPage": 1
+        }
+      }
+    }
+{% endcapture %}
+
+
+<style>
+  .hero-section-whole-text-container {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    transition: transform 0.3s ease;
+    justify-content: center;
+    align-items: center;
+  }
+
+ @media (min-width: 1025px) {
+    .hero-section-whole-text-container[data-position="top-left"] {
+      top: 10%;
+      left: 10%;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .hero-section-whole-text-container[data-position="top-center"] {
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .hero-section-whole-text-container[data-position="top-right"] {
+      top: 10%;
+      right: 10%;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+
+    .hero-section-whole-text-container[data-position="center-left"] {
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .hero-section-whole-text-container[data-position="center-center"] {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-section-whole-text-container[data-position="center-right"] {
+      top: 50%;
+      right: 10%;
+      transform: translateY(-50%);
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .hero-section-whole-text-container[data-position="bottom-left"] {
+      bottom: 10%;
+      left: 10%;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+
+    .hero-section-whole-text-container[data-position="bottom-center"] {
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .hero-section-whole-text-container[data-position="bottom-right"] {
+      bottom: 10%;
+      right: 10%;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+  }
+</style>
+
+<splide-slider class="hero-section" data-slider-settings='{{ slider_settings }}'>
+  <div class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for block in section.blocks %}
+          <li class="splide__slide">
+            <div class="img-container">
+              {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | image_url }}" class="hero-image" alt="{{ block.settings.alt_text }}">
+              {% else %}
+                <div class="placeholder-svg">{{ 'image' | placeholder_svg_tag }}</div>
+              {% endif %}
+            </div>
+            <div class="hero-section-whole-text-container" 
+                 data-position="{{ block.settings.text_position }}">
+              <div class="hero-section-text-container">
+                <h1 class="hero-title">{{ block.settings.heading }}</h1>
+                <p class="hero-caption">{{ block.settings.caption | strip_html }}</p>
+                <button class="hero-button">{{ block.settings.button_text }} {% render 'icon-arrow' %}</button>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</splide-slider>
+
+
+
+
+
+{% schema %}
+    {
+        "name": "Image-Banner",
+        "tag": "section",
+        "class": "section",
+        "settings": [],
+        "blocks": [
+            {
+                "type": "slide",
+                "name": "Slide",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Slide Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "alt_text",
+                        "label": "Image Alt Text"
+                    },
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Heading"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "caption",
+                        "label": "Caption"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button_text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "select",
+                        "id": "text_position",
+                        "label": "Text Position",
+                        "options": [
+                            { "value": "top-left", "label": "Top Left" },
+                            { "value": "top-center", "label": "Top Center" },
+                            { "value": "top-right", "label": "Top Right" },
+                            { "value": "center-left", "label": "Center Left" },
+                            { "value": "center-center", "label": "Center Center" },
+                            { "value": "center-right", "label": "Center Right" },
+                            { "value": "bottom-left", "label": "Bottom Left" },
+                            { "value": "bottom-center", "label": "Bottom Center" },
+                            { "value": "bottom-right", "label": "Bottom Right" }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Hero-Banner",
+                "category": "Custom"
+            }
+        ]
+    }
+{% endschema %}
+    
+    
+    

@@ -1,0 +1,214 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner_n3VV8J": {
+      "type": "Hero-Banner",
+      "blocks": {
+        "slide_bYLLtY": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/freepik__upload__34451_89a434ff-178b-4f81-a840-f0e03cb9625e.jpg",
+            "alt_text": "Please Select a image",
+            "heading": "Modern Homes Decor",
+            "caption": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+            "button_text": "Look More",
+            "text_position": "top-left"
+          }
+        },
+        "slide_8MWhmA": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/freepik__upload__34451_89a434ff-178b-4f81-a840-f0e03cb9625e.jpg",
+            "alt_text": "Please Select a image",
+            "heading": "Modern Homes Decor",
+            "caption": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+            "button_text": "Look More",
+            "text_position": "top-right"
+          }
+        },
+        "slide_APR6tt": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/freepik__upload__34451_89a434ff-178b-4f81-a840-f0e03cb9625e.jpg",
+            "alt_text": "Please Select a image",
+            "heading": "Modern Homes Decor",
+            "caption": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+            "button_text": "Look More",
+            "text_position": "bottom-left"
+          }
+        },
+        "slide_dU6KWV": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/freepik__upload__34451_89a434ff-178b-4f81-a840-f0e03cb9625e.jpg",
+            "alt_text": "Please Select a image",
+            "heading": "Modern Homes Decor",
+            "caption": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+            "button_text": "Look More",
+            "text_position": "bottom-right"
+          }
+        }
+      },
+      "block_order": [
+        "slide_bYLLtY",
+        "slide_8MWhmA",
+        "slide_APR6tt",
+        "slide_dU6KWV"
+      ],
+      "settings": {}
+    },
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "disabled": true,
+      "settings": {
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "mens-collection",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "latest_blogs_Tk3GLc": {
+      "type": "latest-blogs",
+      "blocks": {
+        "text_qeLz9e": {
+          "type": "text",
+          "settings": {
+            "card-image": "shopify://shop_images/442b398df9b50af2e887e2e85a244de4.png",
+            "card-text": "<p>\"Carpet Chronicles: Unraveling Design and Care Secrets\"</p>",
+            "card-description": "Lorem ipsum dolor sit amet, consec tetur adipis\ncing elit, sed do eiusmod.",
+            "YY-DD": "2, Sept 2020"
+          }
+        },
+        "text_fDzXTh": {
+          "type": "text",
+          "settings": {
+            "card-image": "shopify://shop_images/76fbe874c02f18b544d3d3f3b4e1e404.png",
+            "card-text": "<p>\"Carpet Chronicles: Unraveling Design and Care Secrets\"</p>",
+            "card-description": "Lorem ipsum dolor sit amet, consec tetur adipis\ncing elit, sed do eiusmod.",
+            "YY-DD": "2, Sept 2020"
+          }
+        },
+        "text_bkKKeY": {
+          "type": "text",
+          "settings": {
+            "card-image": "shopify://shop_images/bae5cc254057fabe2c20afcdf869e06d.png",
+            "card-text": "<p>\"Carpet Chronicles: Unraveling Design and Care Secrets\"</p>",
+            "card-description": "Lorem ipsum dolor sit amet, consec tetur adipis\ncing elit, sed do eiusmod.",
+            "YY-DD": "2, Sept 2020"
+          }
+        },
+        "text_GKaJC8": {
+          "type": "text",
+          "settings": {
+            "card-text": "<p>\"Carpet Chronicles: Unraveling Design and Care Secrets\"</p>",
+            "card-description": "Lorem ipsum dolor sit amet, consec tetur adipis\ncing elit, sed do eiusmod.",
+            "YY-DD": "2, Sept 2020"
+          }
+        },
+        "text_NbQzVY": {
+          "type": "text",
+          "settings": {
+            "card-text": "<p>\"Carpet Chronicles: Unraveling Design and Care Secrets\"</p>",
+            "card-description": "Lorem ipsum dolor sit amet, consec tetur adipis\ncing elit, sed do eiusmod.",
+            "YY-DD": "2, Sept 2020"
+          }
+        },
+        "text_4ArC8w": {
+          "type": "text",
+          "settings": {
+            "card-text": "<p>\"Carpet Chronicles: Unraveling Design and Care Secrets\"</p>",
+            "card-description": "Lorem ipsum dolor sit amet, consec tetur adipis\ncing elit, sed do eiusmod.",
+            "YY-DD": "2, Sept 2020"
+          }
+        }
+      },
+      "block_order": [
+        "text_qeLz9e",
+        "text_fDzXTh",
+        "text_bkKKeY",
+        "text_GKaJC8",
+        "text_NbQzVY",
+        "text_4ArC8w"
+      ],
+      "settings": {
+        "bg_image": "shopify://shop_images/Background.jpg",
+        "section_color_scheme": "",
+        "blogs": "Latest Blogs",
+        "perpage": 3
+      }
+    }
+  },
+  "order": [
+    "hero_banner_n3VV8J",
+    "image_banner",
+    "featured_collection",
+    "latest_blogs_Tk3GLc"
+  ]
+}

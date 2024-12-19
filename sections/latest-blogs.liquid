@@ -1,0 +1,152 @@
+{{ "latest-blogs.css" | asset_url | stylesheet_tag }}
+{% comment %} <script src="{{'latest-blogs.js' |  asset_url}}" defer></script> {% endcomment %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+{% capture slider_settings %}
+    {
+      "pagination": true,
+      "type": "slide",
+      "perPage": {{ section.settings.perpage }},
+      "gap": "8rem",
+      "arrows": true,
+      "perMove": 1,
+      "speed": 1000,
+      "breakpoints": {
+        "768": {
+          "perPage": 2,
+          "gap": "9rem"
+        },
+        "480": {
+          "perPage": 1
+        }
+      }
+    }
+{% endcapture %}
+    
+
+<div class="relative custom-container  color-{{ section.settings.section_color_scheme }}">
+  <div class="absolute">
+    <img src="{{ section.settings.bg_image |  image_url }}">
+  </div>
+  <div class="section-title">
+    <div class="pipe"></div>
+    <h1 class="head">{{ section.settings.blogs }}</h1>
+    <div class="pipe"></div>
+  </div>
+  <splide-slider class="card-wrapper product-card-wrapper" data-slider-settings='{{ slider_settings }}'>
+    <div class="custom-container splide">
+      <div class="card-container splide__track">
+        <ul class="custom-list splide__list">
+          {% for block in section.blocks %}
+            <li class="custom-slide splide__slide">
+              <div class="separate-card">
+                <div class="image-container">
+                  {% if block.settings.card-image %}
+                    <img
+                      src="{{ block.settings.card-image |  image_url }}"
+                      class="image-width"
+                      alt="No image selected">
+                  {% else %}
+                    <div class="placeholder-svg">{{ 'product-1' | placeholder_svg_tag }}</div>
+                  {% endif %}
+                </div>
+                <div>
+                  <p class="card-head">{{ block.settings.card-text | strip_html }}</p>
+                  <p>{{ block.settings.card-description }}</p>
+                  <div class="icons-container">
+                    <p>
+                      <span>{{ block.settings.YY-DD }}</span>
+                    </p>
+                    <div class="icons">{% render 'Blog-page-icons' %}</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </splide-slider>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Blog Post",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Background_Image"
+      }, {
+        "type": "color_scheme",
+        "id": "section_color_scheme",
+        "label": "Background-color",
+        "default": "background"
+      }, {
+        "type": "text",
+        "id": "blogs",
+        "label": "Blog Title",
+        "default": "Blog Title"
+      },
+      {
+        "type": "range",
+        "id": "perpage",
+        "label": "Slide_Per-page",
+        "step": 1,
+        "min": 1,
+        "max": 6,
+        "default": 3
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Blog",
+        "type": "text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "card-image",
+            "label": "Image"
+          }, {
+            "type": "richtext",
+            "id": "card-text",
+            "label": "Caption",
+            "default": "<p>Carpet Chronicles: Unraveling Design and Care Secrets<p>"
+          }, {
+            "type": "textarea",
+            "id": "card-description",
+            "label": "Description",
+            "default": "Lorem ipsum dolor sit amet, consec tetur adipis cing elit, sed do eiusmod."
+          }, {
+            "type": "text",
+            "id": "YY-DD",
+            "label": "Date & Year",
+            "default": "2, Sept 2020"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Blog page",
+        "blocks": [
+          {
+            "type": "text"
+          }, {
+            "type": "text"
+          }, {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+

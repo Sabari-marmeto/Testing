@@ -1,0 +1,267 @@
+.custom-container.splide {
+    margin: 0 auto;
+    background-size: 20px 20px;
+    padding: 3rem;
+}
+
+.relative{
+    position: relative;
+    overflow: hidden;
+}
+.absolute{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.section-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.pipe{
+    display: block !important;
+    width: 5px;
+    height: 44px;
+    border: 1px solid #FFF;
+    opacity: 0.8;
+}
+
+.head {
+    color: #FFF;
+    font-family: Spectral;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+    z-index: 1;
+}
+
+.card-container.splide__track {
+    padding: 3rem;
+    padding-left: 60px !important;
+    padding-right: 75px !important;
+}
+
+.custom-list.splide__list {
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.custom-slide:hover .separate-card {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.custom-slide {
+    transition: transform 0.5s ease-in-out;
+}
+
+.separate-card {
+    transition: transform 0.5s ease-in-out, box-shadow 0.3s ease;
+    max-width: 325px;
+    padding: 15px;
+    border-radius: 8.444px;
+    border: 0.844px solid rgba(7, 0, 77, 0.20);
+    background: #FFF;
+    box-shadow: 0px 8.444px 12.667px -2.533px rgba(0, 0, 0, 0.10), 
+                0px 3.378px 5.067px -1.689px rgba(0, 0, 0, 0.05);
+}
+
+.image-width {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.image-container{
+    background-color: #FFF;
+    border-radius: 8.444px;
+    border: 10px solid #FFF;
+    box-shadow: 0px 1.689px 4.222px -0.844px rgba(50, 50, 93, 0.25), 0px 0.844px 2.533px -0.844px rgba(0, 0, 0, 0.30);
+    transform: scale(1.2);
+}
+
+.icons-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icons{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.card-head {
+    color: #07004D;
+    font-family: Spectral;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 120%; /* 24px */
+    padding-top: 20px;
+}
+
+span{
+    font-size: 9px;
+}
+
+p {
+    color: #07004D;
+    font-family: Sora;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.splide__arrow {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    height: 8em;
+    justify-content: center;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5em;
+    z-index: 1;
+}
+.splide__arrow svg {
+    fill: #fff;
+    height: 50%;
+    width: 60%;
+}
+.splide__pagination__page.is-active {
+    background: #fff;
+    transform: scale(1.4);
+    z-index: 1;
+}
+.splide__pagination__page {
+    background: #ccc;
+    border: 0;
+    border-radius: 0;
+    display: inline-block;
+    height: 8px;
+    margin: 3px;
+    padding: 0;
+    position: relative;
+    transition: transform .2s linear;
+    width: 8px;
+}
+.placeholder-svg{
+    width: 80%;
+    margin: auto;
+}
+
+
+/* For tablets and small devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .custom-container.splide {
+        padding: 1.5rem;
+        background-size: 15px 15px;
+    }
+
+    .card-container.splide__track {
+        padding: 3rem 20px;
+    }
+
+    .custom-list.splide__list {
+        gap: 0.5rem;
+    }
+
+    .custom-slide {
+        width: 100%; /* Make slides full-width for better swipe interaction */
+    }
+
+    .separate-card {
+        max-width: 100%; /* Full width cards */
+        padding: 10px;
+    }
+
+    .custom-slide:hover .separate-card {
+        transform: none;
+    }
+
+    .head {
+        margin-top: 5px;
+        font-size: 28px;
+    }
+
+    .splide__arrow,
+    .splide__pagination {
+        display: none; /* Hide arrows and pagination */
+    }
+
+    .card-head {
+        color: #07004D;
+        font-family: Spectral;
+        font-size: 16px;
+        font-style: italic;
+        font-weight: 600;
+        line-height: 120%; /* 24px */
+        padding-top: 20px;
+    }
+
+    span{
+        font-size: 9px;
+    }
+
+    .icons-container {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+    }
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .custom-container.splide {
+        padding: 1rem;
+        background-size: 10px 10px;
+    }
+
+    .card-container.splide__track {
+        padding: 2rem 10px;
+    }
+
+    .custom-slide {
+        width: 100%; /* Full width */
+    }
+
+    .separate-card {
+        max-width: 100%;
+        padding: 8px;
+    }
+
+    .custom-slide:hover .separate-card {
+        transform: none;
+    }
+
+    .head {
+        font-size: 24px;
+    }
+
+    .splide__arrow,
+    .splide__pagination {
+        display: none; /* Hide arrows and pagination */
+    }
+}
+
+/* @media (min-width: 750px) {
+    .custom-slide:hover .separate-card {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+} */

@@ -1,0 +1,218 @@
+<script src="{{ 'carousel.js' | asset_url }}" defer="defer"></script>
+{% style %}
+  #carousel--{{ section.id }} {
+      display: block;
+      padding-top: {{ section.settings.section-padding-top | times: 0.75 | round | append: 'px' }};
+      padding-bottom: {{ section.settings.section-padding-bottom | times: 0.75 | round | append: 'px' }};
+      padding-left: {{ section.settings.section-padding-left | append: 'px' }};
+      padding-right: {{ section.settings.section-padding-right | append: 'px' }};
+      background-color: {{ section.settings.background_color }};
+  }
+  @media screen and (min-width: 750px) {
+      #carousel--{{ section.id }} {
+          padding-top: {{ section.settings.section-padding-top | append: 'px' }};
+          padding-bottom: {{ section.settings.section-padding-bottom | append: 'px' }};
+      }
+  }
+          #carousel--{{ section.id }} {
+              display: block;
+              padding-top: {{ section.settings.section-padding-top | times: 0.75 | round: 0 | append: 'px'  }};
+              padding-bottom: {{ section.settings.section-padding-bottom | times: 0.75 | round: 0 | append: 'px'  }};
+          }
+          @media screen and (min-width: 750px) {
+              #carousel--{{ section.id }} {
+                  padding-top: {{ section.settings.section-padding-top | append: 'px'  }};
+                  padding-bottom: {{ section.settings.section-padding-bottom | append: 'px'  }};
+              }
+          }
+{% endstyle %}
+<carousel-component
+  id="carousel--{{ section.id }}"
+  class="custom-splide-review splide tw-h-[300px] md:tw-h-[350px]"
+  data-autoplay="{{ section.settings.enable_autoplay | default: false }}"
+  data-autoplay-speed="{{ section.settings.autoplay_speed | times: 1000 | default: 3000  }}"
+  data-desktopperpage="{{ section.settings.slides_perpage | default: 1 }}"
+  data-mobileperpage="{{ section.settings.slides_perpage_mobile | default: 1 }}"
+  data-type="loop"
+  data-pagination="{{ section.settings.enable_pagination }}"
+  data-showDots="{{ section.settings.show_dots }}"
+  data-showDotsOnMobile="{{ section.settings.show_dots_on_mobile }}"
+>
+  <div class="splide__track lg:tw-w-[660px]  md:tw-mx-auto ">
+    <ul class="splide__list ">
+      {%- for block in section.blocks -%}
+        <li class="splide__slide">
+          <div class=" ">
+            {% if block.settings.headers_value != blank %}
+              <p class="custom-paratext">
+                <a
+                  href="{{ block.settings.link }}"
+                  class=""
+                >{{ block.settings.headers_value | strip_html }}</a>
+              </p>
+            {% endif %}
+          </div>
+        </li>
+        {%- if forloop.index < section.blocks.size -%}
+          <span class="tw-mx-2">|</span>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</carousel-component>
+{% schema %}
+{
+  "name": "Carousel",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "SECTION SETTINGS"
+    },
+    {
+      "type": "richtext",
+      "id": "section_review_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "section_review_desc",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading align",
+      "options": [
+        {
+          "label": "Left",
+          "value": "tw-text-left"
+        },
+        {
+          "label": "Center",
+          "value": "tw-text-center"
+        },
+        {
+          "label": "Right",
+          "value": "tw-text-right"
+        }
+      ],
+      "default": "tw-text-center"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF",
+      "info": "Choose a background color for the carousel section."
+    },
+    {
+      "type": "header",
+      "content": "SLIDER SETTINGS"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show dots on desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots_on_mobile",
+      "label": "Show dots on mobile",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay interval",
+      "min": 2,
+      "max": 6,
+      "default": 3,
+      "info": "Default 3s"
+    },
+    {
+      "type": "number",
+      "id": "slides_perpage",
+      "label": "Slides perpage",
+      "default": 1,
+      "info": "Default Desktop 4 slides"
+    },
+    {
+        "type": "number",
+        "id": "slides_perpage_mobile",
+        "label": "Slides perpage Mobile",
+        "default": 1,
+        "info": "Default Desktop 2 slides"
+      },
+    {
+      "type": "range",
+      "id": "section-padding-top",
+      "label": "Padding top",
+      "default": 0,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "section-padding-bottom",
+      "label": "Padding bottom",
+      "default": 0,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "section-padding-left",
+      "label": "Padding Left",
+      "default": 0,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "section-padding-right",
+      "label": "Padding Right",
+      "default": 0,
+      "min": 0,
+      "max": 100
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Carousel Block",
+      "type": "carousel_block",
+      "settings": [
+       {
+         "type": "richtext",
+         "id": "headers_value",
+         "label": "Announcement bar",
+         "default":"<p>kishore kamal</p>"
+       },
+       {
+         "type": "url",
+         "id": "link",
+         "label": "Link"
+       }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "custom announcement bar"
+    }
+  ]
+}
+{% endschema %}
